@@ -28,7 +28,7 @@ const projectsData = {
     mainImage: "/images/sylf-dispenser.png",
     gallery: [
       "/images/dispenser-gallery1.png",
-      "/videos/dispenser-gallery-vid1.mp4",
+      "/videos/video-example.mp4",
       "/images/project-cocktail-gallery3.jpg",
       "/images/sylf-dispenser.png",
       "/images/project-cocktail-gallery1.jpg",
