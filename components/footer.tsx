@@ -83,52 +83,22 @@ export default function Footer() {
             <h3 className="text-sm font-semibold uppercase tracking-wider text-black mb-4">Services</h3>
             <ul className="space-y-4">
               <li>
-                <Link
-                  href="/services/ergonomic-lift-solutions"
-                  className="text-sm text-gray-600 hover:text-black transition-colors"
-                >
                   Ergonomic Lift Solutions
-                </Link>
               </li>
               <li>
-                <Link
-                  href="/services/design-for-manufacture"
-                  className="text-sm text-gray-600 hover:text-black transition-colors"
-                >
                   Design for Manufacture (DFM)
-                </Link>
               </li>
               <li>
-                <Link
-                  href="/services/cad-modeling"
-                  className="text-sm text-gray-600 hover:text-black transition-colors"
-                >
                   CAD & 3D Modeling
-                </Link>
               </li>
               <li>
-                <Link
-                  href="/services/product-prototyping"
-                  className="text-sm text-gray-600 hover:text-black transition-colors"
-                >
                   Product Prototyping
-                </Link>
               </li>
               <li>
-                <Link
-                  href="/services/industrial-integration"
-                  className="text-sm text-gray-600 hover:text-black transition-colors"
-                >
                   Industrial Integration
-                </Link>
               </li>
               <li>
-                <Link
-                  href="/services/process-optimization"
-                  className="text-sm text-gray-600 hover:text-black transition-colors"
-                >
                   Process Optimization
-                </Link>
               </li>
             </ul>
           </div>

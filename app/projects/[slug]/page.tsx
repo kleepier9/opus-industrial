@@ -7,36 +7,38 @@ import Link from "next/link"
 // This would typically come from a database or CMS
 // You can expand this with more projects as needed
 const projectsData = {
-  "automated-assembly-line": {
-    title: "Automated Assembly Line",
-    category: "Manufacturing Optimization",
-    client: "Automotive Components Inc.",
-    location: "Detroit, MI",
-    year: "2022",
+  "automated-beverage-dispenser": {
+    title: "Automated Beverage Dispenser",
+    category: "Hospitality Innovation",
+    client: "Sylf, LLC",
+    location: "Scranton, PA",
+    year: "2023",
     description:
-      "Custom-designed assembly system for automotive components manufacturing that increased production efficiency by 35% while reducing error rates by 50%.",
+      "A state-of-the-art automated cocktail dispenser capable of creating custom cocktails with precision and speed, enhancing customer experience in high-end hospitality settings.",
     challenge:
-      "The client was facing significant bottlenecks in their production line, with manual assembly processes leading to inconsistent quality and production delays. They needed a solution that would increase throughput while maintaining or improving quality standards.",
+      "The client wanted to revolutionize the bar experience by introducing an automated solution that could handle high demand while maintaining the quality and consistency of handcrafted cocktails. They needed to take this from concept to a fully functional prototype in under 6 months.",
     solution:
-      "We designed a fully automated assembly line with integrated quality control systems. The solution included custom fixtures, robotic assembly stations, and a centralized control system that allowed for real-time monitoring and adjustments.",
+      "We developed a fully automated cocktail dispenser, handling everything from CAD design to assembly and part procurement.",
     results: [
-      "35% increase in production efficiency",
-      "50% reduction in error rates",
-      "20% decrease in production costs",
-      "ROI achieved within 14 months",
+      "<6 Months Development Time",
+      "Add result #2",
+      "Add result #3",
+      "Add result #4",
     ],
-    mainImage: "/images/project1-detail.jpg",
+    mainImage: "/images/sylf-dispenser.png",
     gallery: [
-      "/images/project1-gallery1.jpg",
-      "/images/project1-gallery2.jpg",
-      "/images/project1-gallery3.jpg",
-      "/images/project1-gallery4.jpg",
+      "/images/dispenser-gallery1.png",
+      "/videos/dispenser-gallery-vid1.mp4",
+      "/images/project-cocktail-gallery3.jpg",
+      "/images/sylf-dispenser.png",
+      "/images/project-cocktail-gallery1.jpg",
+      "/images/project-cocktail-gallery2.jpg",
     ],
     testimonial: {
       quote:
-        "The automated assembly line designed by Opus Industrial transformed our manufacturing process. We've seen significant improvements in both efficiency and quality, which has directly impacted our bottom line.",
-      author: "James Wilson",
-      position: "Production Manager, Automotive Components Inc.",
+        "Opus Industrial made our vision a reality with their innovative approach and attention to detail. Every step of the way they worked with us to make this product a success.",
+      author: "Keyser Leepier",
+      position: "CEO/Founder, Sylf",
     },
   },
   "ergonomic-workstation": {
@@ -137,4 +139,3 @@ export default function ProjectDetailPage({ params }) {
     </div>
   )
 }
-

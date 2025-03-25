@@ -33,37 +33,37 @@ export interface ProjectData {
 // Sample project data - you can expand this as needed
 export const projects: ProjectData[] = [
   {
-    id: "automated-assembly-line",
-    title: "Automated Assembly Line",
-    category: "Manufacturing Optimization",
-    client: "Automotive Components Inc.",
-    location: "Detroit, MI",
-    year: "2022",
+    id: "automated-beverage-dispenser",
+    title: "Automated Beverage Dispenser",
+    category: "Hospitality Innovation",
+    client: "Sylf, LLC",
+    location: "Scranton, PA",
+    year: "2023",
     description:
-      "Custom-designed assembly system for automotive components manufacturing that increased production efficiency by 35% while reducing error rates by 50%.",
+      "A state-of-the-art automated cocktail dispenser capable of creating custom cocktails with precision and speed, enhancing customer experience in high-end hospitality settings.",
     challenge:
-      "The client was facing significant bottlenecks in their production line, with manual assembly processes leading to inconsistent quality and production delays. They needed a solution that would increase throughput while maintaining or improving quality standards.",
+      "The client wanted to revolutionize the bar experience by introducing an automated solution that could handle high demand while maintaining the quality and consistency of handcrafted cocktails. They needed a system that combined precision, speed, and reliability.",
     solution:
-      "We designed a fully automated assembly line with integrated quality control systems. The solution included custom fixtures, robotic assembly stations, and a centralized control system that allowed for real-time monitoring and adjustments.",
+      "We developed a fully automated cocktail dispenser, handling everything from CAD design to assembly and part procurement.",
     results: [
-      "35% increase in production efficiency",
-      "50% reduction in error rates",
-      "20% decrease in production costs",
-      "ROI achieved within 14 months",
+      "50% reduction in drink preparation time",
+      "Consistent cocktail quality across all servings",
+      "Increased customer satisfaction and engagement",
+      "Reduced operational costs for bar staff",
     ],
-    mainImage: "/images/project1-detail.jpg",
-    thumbnailImage: "/images/project1.jpg",
+    mainImage: "/images/sylf-dispenser.png",
+    thumbnailImage: "/images/sylf-dispenser.png",
     gallery: [
-      "/images/project1-gallery1.jpg",
-      "/images/project1-gallery2.jpg",
-      "/images/project1-gallery3.jpg",
-      "/images/project1-gallery4.jpg",
+      "/images/project-cocktail-gallery1.jpg",
+      "/images/project-cocktail-gallery2.jpg",
+      "/images/project-cocktail-gallery3.jpg",
+      "/images/project-cocktail-gallery4.jpg",
     ],
     testimonial: {
       quote:
-        "The automated assembly line designed by Opus Industrial transformed our manufacturing process. We've seen significant improvements in both efficiency and quality, which has directly impacted our bottom line.",
-      author: "James Wilson",
-      position: "Production Manager, Automotive Components Inc.",
+        "Opus Industrial made our vision a reality with their innovative approach and attention to detail. Every step of the way they worked with us to make this product a success.",
+      author: "Keyser Leepier",
+      position: "CEO/Founder, Sylf",
     },
     featured: true,
   },
@@ -157,4 +157,3 @@ export function getAllCategories(): string[] {
   const categories = new Set(projects.map((project) => project.category))
   return Array.from(categories)
 }
-

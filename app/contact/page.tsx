@@ -53,7 +53,7 @@ export default function ContactPage() {
         <section className="relative min-h-[60vh] flex items-center">
           <div className="absolute inset-0 z-0">
             <Image
-              src="/images/contact-hero.jpg"
+              src="/images/g-force-device.jpg"
               alt="Industrial machinery"
               fill
               className="object-cover brightness-[0.7]"
@@ -285,7 +285,7 @@ export default function ContactPage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="overflow-hidden">
               <div className="relative h-[400px] w-full">
-                <Image src="/images/map.jpg" alt="Office Location Map" fill className="object-cover" />
+                <Image src="/images/carbondale-map.png" alt="Office Location Map" fill className="object-cover" />
               </div>
             </div>
           </div>

@@ -1,13 +1,17 @@
+"use client"
+
 import type React from "react"
+import { useState, useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowLeft, ArrowRight } from "lucide-react"
+import { ArrowLeft, ArrowRight, Play } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import CTASection from "@/components/cta-section"
 
-export interface ProjectGalleryImage {
+export interface GalleryItem {
   src: string
   alt?: string
+  type?: "image" | "video"
 }
 
 export interface ProjectTestimonial {
@@ -27,9 +31,52 @@ export interface ProjectDetailProps {
   solution: string
   results: string[]
   mainImage: string
-  gallery: ProjectGalleryImage[] | string[]
+  gallery: GalleryItem[] | string[]
   testimonial?: ProjectTestimonial
   additionalContent?: React.ReactNode // For any custom content specific to a project
+}
+
+// Video Gallery Item Component
+function VideoGalleryItem({ src, alt }: { src: string; alt?: string }) {
+  const [isPlaying, setIsPlaying] = useState(false)
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  const handlePlay = () => {
+    if (videoRef.current) {
+      videoRef.current.play()
+      setIsPlaying(true)
+    }
+  }
+
+  const handleEnded = () => {
+    setIsPlaying(false)
+    if (videoRef.current) {
+      videoRef.current.currentTime = 0
+    }
+  }
+
+  return (
+    <div className="relative w-full h-[400px] md:h-[450px] bg-gray-100 overflow-hidden">
+      <video
+        ref={videoRef}
+        src={src}
+        className="w-full h-full object-contain"
+        onEnded={handleEnded}
+        onClick={handlePlay}
+      />
+      {!isPlaying && (
+        <button
+          onClick={handlePlay}
+          className="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors"
+          aria-label="Play video"
+        >
+          <div className="w-16 h-16 rounded-full bg-black/70 flex items-center justify-center">
+            <Play className="h-8 w-8 text-white" fill="white" />
+          </div>
+        </button>
+      )}
+    </div>
+  )
 }
 
 export default function ProjectDetailTemplate({
@@ -50,7 +97,21 @@ export default function ProjectDetailTemplate({
   // Process gallery to ensure it's in the right format
   const processedGallery = gallery.map((item) => {
     if (typeof item === "string") {
-      return { src: item, alt: `${title} image` }
+      // Determine if it's a video based on file extension
+      const isVideo = item.match(/\.(mp4|webm|ogg|mov)$/i) !== null
+      return {
+        src: item,
+        alt: `${title} ${isVideo ? "video" : "image"}`,
+        type: isVideo ? ("video" as const) : ("image" as const),
+      }
+    }
+    // If it's already an object, ensure it has a type
+    if (!item.type) {
+      const isVideo = item.src.match(/\.(mp4|webm|ogg|mov)$/i) !== null
+      return {
+        ...item,
+        type: isVideo ? ("video" as const) : ("image" as const),
+      }
     }
     return item
   })
@@ -126,12 +187,6 @@ export default function ProjectDetailTemplate({
                     ))}
                   </ul>
                 </div>
-
-                <div className="mt-8">
-                  <Button asChild className="w-full minimal-button bg-black text-white">
-                    <Link href="/contact">Discuss a Similar Project</Link>
-                  </Button>
-                </div>
               </div>
             </div>
 
@@ -148,19 +203,23 @@ export default function ProjectDetailTemplate({
                   <p className="mt-4 text-lg text-gray-600">{solution}</p>
                 </div>
 
-                {/* Project Gallery */}
+                {/* Project Gallery - Supports both images and videos */}
                 <div>
                   <h3 className="text-2xl font-bold mb-6">Project Gallery</h3>
                   <div className="grid gap-6 sm:grid-cols-2">
-                    {processedGallery.map((image, index) => (
+                    {processedGallery.map((item, index) => (
                       <div key={index} className="product-image-container">
-                        <Image
-                          src={image.src || "/placeholder.svg"}
-                          alt={image.alt || `${title} gallery image ${index + 1}`}
-                          width={600}
-                          height={400}
-                          className="w-full h-[300px] object-cover"
-                        />
+                        {item.type === "video" ? (
+                          <VideoGalleryItem src={item.src} alt={item.alt} />
+                        ) : (
+                          <Image
+                            src={item.src || "/placeholder.svg"}
+                            alt={item.alt || `${title} gallery image ${index + 1}`}
+                            width={400}
+                            height={800}
+                            className="w-full h-[400px] md:h-[450px] object-contain bg-gray-100"
+                          />
+                        )}
                       </div>
                     ))}
                   </div>
@@ -217,4 +276,3 @@ export default function ProjectDetailTemplate({
     </main>
   )
 }
-

@@ -14,7 +14,7 @@ export default function ProjectsPage() {
         <section className="relative min-h-[60vh] flex items-center">
           <div className="absolute inset-0 z-0">
             <Image
-              src="/images/projects-hero.jpg"
+              src="/images/g-force-lifts.jpg"
               alt="Industrial projects"
               fill
               className="object-cover brightness-[0.7]"
@@ -44,7 +44,7 @@ export default function ProjectsPage() {
                       <Image
                         src={project.thumbnailImage || "/placeholder.svg"}
                         alt={project.title}
-                        fill
+                        fill f
                         className="object-cover"
                       />
                     </div>
